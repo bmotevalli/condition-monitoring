@@ -1,31 +1,21 @@
-import mach from "./sensordata.json"
+import mach from "./sensordata.json";
 
-const machines = mach
+const machines = mach;
 
-export default {
-    
-    getAllMachines = () => {
-        return machines
-    },
-    getMachineById = (mach_id) => {
-        return machines.find((mach) => {
-            return mach.machId === mach_id
-        })
-    },
+export const getAllMachines = () => {
+  return machines;
+};
 
-    getMachineByTimeInterval = () => {
+export const getMachineById = mach_id => {
+  return machines.find(mach => {
+    return mach.machId === mach_id;
+  });
+};
 
-    },
+export const getMachineByTimeInterval = () => {};
 
-    getAllSensors = () => {
-        
-    },
+export const getAllSensors = () => {};
 
-    getSensorsByID = () => {
+export const getSensorsByID = () => {};
 
-    },
-
-    getSensorsByMachId = () => {
-
-    }
-}
+export const getSensorsByMachId = () => {};

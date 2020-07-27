@@ -1,14 +1,41 @@
 import React, { Component } from "react";
-import { faHome, faBars } from "@fortawesome/free-solid-svg-icons";
+import { faHome, faMap, faBars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import SideMenuItem from "./SideMenuItem/SideMenuItem";
 import classes from "./SideMenu.module.css";
-import { ROUTES } from "../../settings/settings";
 import * as actionTypes from "../../store/action";
+import * as ST from "../../settings/settings";
 import { connect } from "react-redux";
 
 class SideMenu extends Component {
+  state = {
+    menuItems: [
+      {
+        header: "Home",
+        icon: faHome,
+        link: ST.ROUTES.MAINVIEW.HOME.PATH
+      },
+      {
+        header: "Map",
+        icon: faMap,
+        link: ST.ROUTES.MAINVIEW.MAP.PATH
+      }
+    ]
+  };
+
   render() {
+    const menuItems = this.state.menuItems.map(item => {
+      return (
+        <SideMenuItem
+          key={item.header}
+          icon={item.icon}
+          header={item.header}
+          link={item.link}
+          isExpanded={this.props.isExpanded}
+        />
+      );
+    });
+
     return (
       <div className={classes.SideMenu}>
         <button
@@ -20,34 +47,29 @@ class SideMenu extends Component {
             height: "40px",
             alignSelf: "flex-end",
             marginRight: "10px",
-            marginTop: "10px",
+            marginTop: "10px"
           }}
         >
           <FontAwesomeIcon icon={faBars} />
         </button>
         <div style={{ marginTop: "80px" }}></div>
-        <SideMenuItem
-          icon={faHome}
-          header="Home"
-          link="/"
-          isExpanded={this.props.isExpanded}
-        />
+        {menuItems}
       </div>
     );
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
-    isExpanded: state.isSideMenuExpanded,
+    isExpanded: state.isSideMenuExpanded
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
     onToggleSideMenu: () => {
       dispatch({ type: actionTypes.TOGGLE_SIDEMENU });
-    },
+    }
   };
 };
 
