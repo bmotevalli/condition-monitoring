@@ -1,0 +1,1 @@
+export const TOGGLE_SIDEMENU = "TOGGLE_SIDEMENU";
