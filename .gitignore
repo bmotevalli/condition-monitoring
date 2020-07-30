@@ -4,6 +4,7 @@
 # -------
 
 /client/src/api/fakeApi/sensordata.json
+/client/src/settings/apikeys.js
 # dependencies
 /client/node_modules
 /client/.pnp
