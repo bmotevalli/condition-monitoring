@@ -13,7 +13,7 @@
     "@testing-library/user-event": "^7.2.1",
     "axios": "^0.19.2",
     "bootstrap": "^4.5.0",
-    "google-map-react": "^1.1.7",
+    "google-maps-react": "^2.0.6",
     "lodash": "^4.17.19",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
@@ -23,8 +23,7 @@
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
-    "redux": "^4.0.5",
-    "styled-components": "^5.1.1"
+    "redux": "^4.0.5"
   },
   "scripts": {
     "start": "react-scripts start",

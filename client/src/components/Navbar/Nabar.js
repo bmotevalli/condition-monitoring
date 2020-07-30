@@ -7,7 +7,7 @@ class Navbar extends Component {
   render() {
     let Style = {
       marginLeft: ST.SIDE_MENU.CLOSED,
-      zIndex: "500",
+      zIndex: "500"
     };
     if (this.props.isExpanded) {
       Style["marginLeft"] = ST.SIDE_MENU.OPENED;
@@ -33,9 +33,9 @@ class Navbar extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
-    isExpanded: state.isSideMenuExpanded,
+    isExpanded: state.isSideMenuExpanded
   };
 };
 
