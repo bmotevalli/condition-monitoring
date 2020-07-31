@@ -5,6 +5,7 @@ import classes from "./GoogleMap.module.css";
 import locIcon from "../../asset/location.png";
 import { connect } from "react-redux";
 import * as actionMachTypes from "../../store/machines/actionMach";
+import MarkerInfo from "../../components/Info/MarkerInfo/MarkerInfo";
 
 const mapStyles = {
   width: "100%",
@@ -66,11 +67,7 @@ class GoogleMap extends Component {
           visible={this.state.showingInfoWindow}
           onClose={this.onClose}
         >
-          <div>
-            <h4>{this.state.selectedPlace.name}</h4>
-            <p>Sensors: {this.state.selectedPlace.numSensors}</p>
-            <p>Id: {this.state.selectedPlace.machId}</p>
-          </div>
+          <MarkerInfo selectedPlace={this.state.selectedPlace} />
         </InfoWindow>
       </Map>
     );

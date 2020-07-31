@@ -24,6 +24,8 @@ export const getMachineByTimeInterval = () => {};
 
 export const getAllSensors = () => {};
 
-export const getSensorsByID = () => {};
+export const getSensorsByID = (selectedMach, sensId) => {
+  return selectedMach.sensors.find(o => o.sensId === sensId);
+};
 
 export const getSensorsByMachId = () => {};

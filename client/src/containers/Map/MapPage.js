@@ -1,44 +1,48 @@
 import React, { Component } from "react";
-import GoogleMap from "./GoogleMap";
+import GoogleMap from "../../components/GoogleMap/GoogleMap";
+import MachSummary from "../../components/Info/MachSummary/MachSummary";
 import * as ST from "../../settings/settings";
-import { connect } from "react-redux";
+import PlotLineChart from "../../components/Plot/LineChart/PlotLineChart";
 
 class MapPage extends Component {
   state = {};
   render() {
     return (
       <div
-        className="card col-4"
+        className="row"
         style={{
           marginLeft: ST.SIDE_MENU.CLOSED,
-          height: "700px",
           padding: "0px",
           "box-sizing": "border-box"
         }}
       >
         <div
-          className="card"
+          className="card col-4"
           style={{
-            height: "70%",
+            marginLeft: ST.SIDE_MENU.CLOSED,
+            height: "700px",
+            padding: "0px",
             "box-sizing": "border-box"
           }}
         >
-          <GoogleMap />
+          <div
+            className="card"
+            style={{
+              height: "70%",
+              "box-sizing": "border-box"
+            }}
+          >
+            <GoogleMap />
+          </div>
+          <MachSummary />
         </div>
-        <div>
-          <p>
-            {this.props.selectedMach ? this.props.selectedMach.name : "Empty"}
-          </p>
+
+        <div className="col-6">
+          <PlotLineChart />
         </div>
       </div>
     );
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    selectedMach: state.mach.selectedMach
-  };
-};
-
-export default connect(mapStateToProps)(MapPage);
+export default MapPage;
