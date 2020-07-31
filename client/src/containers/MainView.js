@@ -3,8 +3,12 @@ import * as ST from "../settings/settings";
 import { connect } from "react-redux";
 import classes from "./MainView.module.css";
 import { Switch, Route } from "react-router-dom";
+import * as actionMachTypes from "../store/machines/actionMach";
 
 class MainView extends Component {
+  componentDidMount() {
+    this.props.loadAllMachinesSummary();
+  }
   render() {
     let Style = {
       marginLeft: ST.SIDE_MENU.CLOSED
@@ -34,8 +38,17 @@ class MainView extends Component {
 
 const mapStateToProps = state => {
   return {
-    isExpanded: state.isSideMenuExpanded
+    isExpanded: state.main.isSideMenuExpanded,
+    machines: state.mach.machSummary
   };
 };
 
-export default connect(mapStateToProps)(MainView);
+const mapDispatchToProps = dispatch => {
+  return {
+    loadAllMachinesSummary: () => {
+      dispatch({ type: actionMachTypes.GET_ALL_MACHS_GENERAL });
+    }
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(MainView);

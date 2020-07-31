@@ -35,7 +35,7 @@ class Navbar extends Component {
 
 const mapStateToProps = state => {
   return {
-    isExpanded: state.isSideMenuExpanded
+    isExpanded: state.main.isSideMenuExpanded
   };
 };
 

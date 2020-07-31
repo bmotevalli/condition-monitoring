@@ -1,0 +1,2 @@
+export const GET_ALL_MACHS_GENERAL = "GET_ALL_MACHS_GENERAL";
+export const GET_MACH_BY_ID = "GET_MACH_BY_ID";

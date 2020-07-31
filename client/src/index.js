@@ -8,8 +8,10 @@ import { createStore, combineReducers } from "redux";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import reducerMain from "./store/reducer";
+import reducerMach from "./store/machines/reducerMach";
 
-const store = createStore(reducerMain);
+const reducer = combineReducers({ main: reducerMain, mach: reducerMach });
+const store = createStore(reducer);
 
 ReactDOM.render(
   <React.StrictMode>

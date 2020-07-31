@@ -1,9 +1,9 @@
 import Home from "../containers/Home/Home";
-import GoogleMap from "../containers/Map/GoogleMap";
+import MapPage from "../containers/Map/MapPage";
 
 export const ROUTES = {
   MAINVIEW: {
-    MAP: { PATH: "/googlemap", COMP: GoogleMap },
+    MAP: { PATH: "/googlemap", COMP: MapPage },
     HOME: { PATH: "/home", COMP: Home }
   }
 };

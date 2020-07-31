@@ -1,7 +1,7 @@
 import * as actionTypes from "./action";
 
 const initialState = {
-  isSideMenuExpanded: false,
+  isSideMenuExpanded: false
 };
 
 const reducer = (state = initialState, action) => {
@@ -10,7 +10,7 @@ const reducer = (state = initialState, action) => {
       const isExpanded = !state.isSideMenuExpanded;
       return {
         ...state,
-        isSideMenuExpanded: isExpanded,
+        isSideMenuExpanded: isExpanded
       };
   }
 
