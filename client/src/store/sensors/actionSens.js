@@ -1,0 +1,2 @@
+export const GET_ALL_SENSORS = "GET_ALL_SENSORS";
+export const GET_SENSOR_BY_ID = "GET_SENSOR_BY_ID";

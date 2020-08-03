@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import GoogleMap from "../../components/GoogleMap/GoogleMap";
 import MachSummary from "../../components/Info/MachSummary/MachSummary";
 import * as ST from "../../settings/settings";
-import PlotLineChart from "../../components/Plot/LineChart/PlotLineChart";
+// import PlotLineChart from "../../components/Plot/LineChart/PlotLineChart";
+import PlotSensorData from "../../components/Plot/LineChart/PlotSensorData/PlotSensorData";
 
 class MapPage extends Component {
   state = {};
@@ -38,7 +39,7 @@ class MapPage extends Component {
         </div>
 
         <div className="col-6">
-          <PlotLineChart />
+          <PlotSensorData />
         </div>
       </div>
     );

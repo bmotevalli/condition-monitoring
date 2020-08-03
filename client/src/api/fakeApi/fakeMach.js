@@ -4,19 +4,19 @@ import * as ST from "../../settings/settings";
 const machines = mach;
 
 export const getAllMachines = () => {
-  return machines.map((mach) => {
+  return machines.map(mach => {
     return {
       lat: mach.coordinate.lat,
       lng: mach.coordinate.lng,
       name: mach.name,
       id: mach.machId,
-      numSensors: mach.sensors.length,
+      numSensors: mach.sensors.length
     };
   });
 };
 
-export const getMachineById = (mach_id) => {
-  return machines.find((mach) => {
+export const getMachineById = mach_id => {
+  return machines.find(mach => {
     return mach.machId === mach_id;
   });
 };
@@ -25,9 +25,8 @@ export const getMachineByTimeInterval = () => {};
 
 export const getAllSensors = () => {};
 
-export const getSensorsByID = (selectedMach, sensId) => {
-  let sensor = selectedMach.sensors.find((o) => o.sensId === sensId);
-
+export const getSensorsById = (selectedMach, sensId) => {
+  let sensor = selectedMach.sensors.find(o => o.sensId === sensId);
   let t0 = 0;
   const elapsedTime = sensor.histData.map((data, index) => {
     let t = new Date(data.timestamp);
@@ -41,19 +40,19 @@ export const getSensorsByID = (selectedMach, sensId) => {
       case ST.SENSE_TYPES.PRES:
         return {
           t: diffMins,
-          P: data.value.P,
+          P: data.value.P
         };
       case ST.SENSE_TYPES.TEMP:
         return {
           t: diffMins,
-          T: data.value.T,
+          T: data.value.T
         };
       case ST.SENSE_TYPES.VIBR:
         return {
           t: diffMins,
           X: data.value.X,
           Vel: data.value.Vel,
-          Acc: data.value.Acc,
+          Acc: data.value.Acc
         };
     }
   });
@@ -63,6 +62,6 @@ export const getSensorsByID = (selectedMach, sensId) => {
   return sensor;
 };
 
-const parseDateTime = (DateTime) => {};
+const parseDateTime = DateTime => {};
 
 export const getSensorsByMachId = () => {};

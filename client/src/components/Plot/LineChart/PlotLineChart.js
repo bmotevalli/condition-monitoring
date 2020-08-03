@@ -7,7 +7,7 @@ import {
   CartesianGrid,
   Tooltip,
   Legend,
-  ResponsiveContainer,
+  ResponsiveContainer
 } from "recharts";
 import { connect } from "react-redux";
 import * as ST from "../../../settings/settings";
@@ -46,7 +46,7 @@ class PlotLineChart extends Component {
               top: 5,
               right: 30,
               left: 20,
-              bottom: 5,
+              bottom: 5
             }}
           >
             <CartesianGrid strokeDasharray="3 3" />
@@ -54,15 +54,6 @@ class PlotLineChart extends Component {
             <YAxis />
             <Tooltip />
             <Legend />
-            {/* <Line
-              type="linear"
-              dataKey="y1"
-              stroke="#117A65"
-              strokeWidth="2"
-              dot={false}
-              activeDot={{ r: 10 }}
-            /> */}
-
             {lines}
           </LineChart>
         </ResponsiveContainer>
@@ -72,53 +63,20 @@ class PlotLineChart extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   const sensID = state.mach.selectedMach
     ? state.mach.selectedMach.machId.toString() + "_1"
     : null;
-  // const testSensor = state.mach.selectedMach
-  //   ? state.mach.selectedMach.sensors[0]
-  //   : null;
 
   let dataChart = null;
   let testSensor = null;
   if (sensID) {
     testSensor = Api.getSensorsByID(state.mach.selectedMach, sensID);
-    // switch (testSensor.senstype) {
-    //   case ST.SENSE_TYPES.PRES:
-    //     dataChart = testSensor.histData.map((data, index) => {
-    //       console.log(data.timestamp.substring(1, 4));
-    //       return {
-    //         // x: data.timestamp,
-    //         x: index,
-    //         y: data.value.P,
-    //       };
-    //     });
-    //     break;
-    //   case ST.SENSE_TYPES.TEMP:
-    //     dataChart = testSensor.histData.map((data, index) => {
-    //       return {
-    //         // x: data.timestamp,
-    //         x: index,
-    //         y: data.value.T,
-    //       };
-    //     });
-    //     break;
-    //   case ST.SENSE_TYPES.VIBR:
-    //     dataChart = testSensor.histData.map((data, index) => {
-    //       return {
-    //         // x: data.timestamp,
-    //         x: index,
-    //         y: data.value.Acc,
-    //       };
-    //     });
-    //     break;
-    // }
   }
 
   return {
     testSensor: testSensor,
-    dataChart: testSensor ? testSensor.histData : null,
+    dataChart: testSensor ? testSensor.histData : null
   };
 };
 

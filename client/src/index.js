@@ -9,8 +9,13 @@ import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import reducerMain from "./store/reducer";
 import reducerMach from "./store/machines/reducerMach";
+import reducerSens from "./store/sensors/reducerSens";
 
-const reducer = combineReducers({ main: reducerMain, mach: reducerMach });
+const reducer = combineReducers({
+  main: reducerMain,
+  mach: reducerMach,
+  sens: reducerSens
+});
 const store = createStore(reducer);
 
 ReactDOM.render(
